@@ -10,3 +10,14 @@ VM user: `user`
 VM password: `root66`
 
 Remember that the [VPN connection](https://student.labranet.jamk.fi/wp-content/uploads/2022/01/LabraNet_Remote_Access_Guide_2022.pdf) to LabraNet is required if you want to access the VLE from home!
+
+You should have the `ExecutionPolicy` set as `Bypass`
+
+```ps1
+Get-ExecutionPolicy
+# Restricted
+```
+
+```ps1
+Set-ExecutionPolicy Bypass
+```
