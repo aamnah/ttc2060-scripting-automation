@@ -21,3 +21,10 @@ Get-ExecutionPolicy
 ```ps1
 Set-ExecutionPolicy Bypass
 ```
+
+NOTES
+---
+
+2023.09.20
+
+- ``Get-Unique` only works when the array is sorted
