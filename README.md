@@ -28,3 +28,4 @@ NOTES
 2023.09.20
 
 - ``Get-Unique` only works when the array is sorted
+- `$_` means every item in the array
