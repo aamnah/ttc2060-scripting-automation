@@ -56,3 +56,46 @@ Add-Content Names.txt -Value $moreFriends
 # Add the listing of current directory to the Foo.txt file
 Get-ChildItem | Add-Content Foo.txt
 ```
+
+
+## Reading CSV Files
+
+Names.csv
+
+```
+Firstname,Lastname,Age
+Anna,Harris,21
+Bella,Davis,33
+Charlie,Kingsley,28
+Dave,Rupert,43
+```
+
+```ps1
+$names = Import-Csv .\Names.csv
+
+$names
+```
+
+```
+Firstname Lastname Age
+--------- -------- ---
+Anna      Harris   21
+Bella     Davis    33
+Charlie   Kingsley 28
+Dave      Rupert   43
+```
+
+
+```ps1
+$names.GetType() # Array
+$names[0].GetType() # System.Object
+
+$names | ForEach-Object {Write-Host 'Hello' $_.Firstname $_.Lastname}
+```
+
+```
+Hello Anna Harris
+Hello Bella Davis
+Hello Charlie Kingsley
+Hello Dave Rupert
+```
