@@ -2,7 +2,15 @@
 
 Task 01
 ---
-![Task 02](./task01.png)
+
+```ps1
+$loggedInUser = whoami
+$dateToday = Get-Date -Format d
+
+Write-Host 'Logged username is' $loggedInUser 'and today is' $dateToday
+```
+
+![Task 01](./task01.png)
 
 Task 02
 ---
@@ -12,7 +20,7 @@ $firstname = Read-Host 'Please, give your firstname'
 $lastname = Read-Host 'Please, give your lastname'
 $groupcode = Read-Host 'Please, give your groupcode'
 
-Write-Host 'Welcome to couurse:' $firstname $lastname $groupcode
+Write-Host 'Welcome to course:' $firstname $lastname $groupcode
 ```
 
 ![Task 02](./task02.png)
@@ -41,8 +49,24 @@ Write-Host "Division is $divide"
 
 Task 04
 ---
+
+```ps1
+$names = @('Adeel', 'Raheel', 'Waqas', 'Soban', 'Safwan', 'Umar', 'Sannan')
+
+Write-Host "There are $($names.Count) friends:"
+Write-Host $names.ForEach({Write-Host $_})
+Write-Host "The oldest is $($names[0]) and the youngest is $($names[6])"
+```
+
 ![Task 04](./task04.png)
 
 Task 05
 ---
+
+```ps1
+$numberOfApplications = (Get-Command -CommandType Application | Measure-Object).Count
+
+Write-Host "You got $numberOfApplications applications in Powershell"
+```
+
 ![Task 05](./task05.png)
