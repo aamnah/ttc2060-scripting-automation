@@ -1,5 +1,10 @@
 # [PowerShell - Exercise 3](https://ttc2060.pages.labranet.jamk.fi/Powershell/25-tasks/#powershell-3)
 
+[Conditions](https://ttc2060.pages.labranet.jamk.fi/Powershell/06-Conditions/)
+
+`$_` is a built-in variable
+
+
 Task 01
 ---
 ![Task 02](./task01.png)
