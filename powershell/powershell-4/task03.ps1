@@ -1,0 +1,1 @@
+<# Create a script that ask workstation names from an user. The names are asked until the user gives empty input. After that, the script writes all names to a file in user's home folder. The file name is given with the parameter: filename. Finally show a proper message that the file was created succesfully. Please, read about manipulating arrays #>
