@@ -39,7 +39,7 @@ if ($PSBoundParameters.Count -eq 0) {
       # Figure out which accounts should be cerated by confirming with the script runner
       $consent = Read-Host "A new local account ${username} will be created for $firstname $lastname, [Yes/No]"
 
-      if (($consent.ToLower() -eq 'Yes') -Or ($consent.ToLower -eq 'Y')) {
+      if (($consent.ToLower() -eq 'Yes') -Or ($consent.ToLower() -eq 'Y')) {
         $accounts += $username
       }
 
