@@ -3,6 +3,16 @@ title: PowerShell Notes
 date: 2023-09-14
 ---
 
+# PowerShell Notes
+
+```bash
+# Get PowerShell version
+$Host.version
+
+# Get PowerShell version in extended details
+$PSVersionTable
+```
+
 ## Comments
 
 ```ps1
@@ -56,7 +66,7 @@ Write-Host $message
 # Amna and Fazal are awesome!
 
 # Format Strings and String Concatenation can not be done
-# diectly in Write-Host
+# directly in Write-Host
 Write-Host $name1 + ' and ' + $name2 + ' are awesome!'
 # Amna +  and  + Fazal +  are awesome!
 
