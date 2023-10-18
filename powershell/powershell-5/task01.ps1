@@ -18,26 +18,32 @@ param(
 
 $accounts = @() # List of accounts (usernames) to create
 
-if (Test-Path $Filename) {
-  Import-Csv $Filename | ForEach-Object {
-    # Create usernames (first 4 alphabets of last name, first 2 of firstname, lowercase)
-    $firstname = $_.Firstname 
-    $lastname = $_.Lastname
-    $username = "$($lastname.Substring(0, 4))$($firstname.Substring(0,2))".ToLower()
-
-    # Log the new usernames
-    Write-Host "Hello my colleague $firstname $lastname, this is your new account:"
-    Write-host $username
-
-    # Add the username to the array of users we need to create
-    $accounts += $username
-
-    # Create the user accounts
-  } 
-
-  Write-Host "$($accounts.Count) account were created successfully."
+if ($PSBounParameters -eq 0) {
+  # Script was run without passing any parameters
+  Write-Host "You need to provide a filename."
+  Write-Host "Example usage: ./task01.ps1 -Filename 'users.csv'"
 } else {
-  Write-Host "File does not exist" 
+  if (Test-Path $Filename) {
+    Import-Csv $Filename | ForEach-Object {
+      # Create usernames (first 4 alphabets of last name, first 2 of firstname, lowercase)
+      $firstname = $_.Firstname 
+      $lastname = $_.Lastname
+      $username = "$($lastname.Substring(0, 4))$($firstname.Substring(0,2))".ToLower()
+  
+      # Log the new usernames
+      Write-Host "Hello my colleague $firstname $lastname, this is your new account:"
+      Write-host $username
+  
+      # Add the username to the array of users we need to create
+      $accounts += $username
+  
+      # Create the user accounts
+    } 
+    Write-Host "$($accounts.Count) account were created successfully."
+  } else {
+    # a filename was provided but the file does not exist
+    Write-Host "Sorry, ${Filename} does not exist." 
+  }
 }
 
 # CSV
