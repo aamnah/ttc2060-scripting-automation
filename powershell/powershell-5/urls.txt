@@ -1,0 +1,3 @@
+https://google.com
+https://aamnah.com
+https://ttc2060.pages.labranet.jamk.fi/Powershell/13-ReadWriteFile/
