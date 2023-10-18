@@ -1,5 +1,8 @@
 # [PowerShell - Exercise 5](https://ttc2060.pages.labranet.jamk.fi/Powershell/25-tasks/#powershell-5)
 
+- [User Management](https://ttc2060.pages.labranet.jamk.fi/Powershell/15-UserManagement/)
+- [Events](https://ttc2060.pages.labranet.jamk.fi/Powershell/16-Events/)
+- [Exceptions](https://ttc2060.pages.labranet.jamk.fi/Powershell/17-Exceptions/)
 
 Task 01
 ---
@@ -23,7 +26,11 @@ Please remember: you have to run this script with Administrator privileges that 
 
 Task 04
 ---
-Create a script that writes information of all the local users in a computer to a CSV-file. The script has one parameter: `filename`. The information includes local users's 1) name 2) full name 3) SID and 4) lastlogon.
+Create a script that writes information of all the local users in a computer to a CSV-file. The script has one parameter: `filename`. The information includes local users's 
+  1. name 
+  2. full name 
+  3. SID 
+  4. lastlogon
 
 ![Task 04](./task04.png)
 
