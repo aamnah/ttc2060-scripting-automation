@@ -62,6 +62,16 @@ You can call a script with `./foo.ps1`
 
 `./` means look in the current directory. On windows it will be `.\` while on Linux and macOS it will be `./`
 
+## Arguments and Parameters
+Use `$PSBoundParameters.Count` if you're passing parameters to a script, and `$Args.Count` when you are passing parameters to a function inside a script.
+
+The values for these two can be different.
+
+```ps1
+Write-Host "PSBoundParameters.Count $($PSBoundParameters.Count)"
+Write-Host "Arguments provided: $($Args.Count)"
+```
+
 ## Variables 
 
 - Variable names are NOT case-sensitive
