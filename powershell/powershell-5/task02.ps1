@@ -28,8 +28,8 @@ if ($PSBoundParameters.Count -eq 0) {
 }
 
 # NOTES:
-# Write-Host "PSBoundParameters.Count $($PSBoundParameters.Count)"
-# Write-Host "Arguments provided: $($Args.Count)"
+# Write-Host "PSBoundParameters.Count: $($PSBoundParameters.Count)" # int
+# Write-Host "Args.Count: $($Args.Count)" # int
 # Use `$PSBoundParameters.Count` if you're passing parameters to a script, 
 # and `$Args.Count` when you are passing parameters to a function inside a script.
 # The values for these two can be different.

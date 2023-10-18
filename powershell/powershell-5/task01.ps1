@@ -36,6 +36,9 @@ if ($PSBounParameters -eq 0) {
       $accounts += $username
   
       # Create the user accounts
+      # foreach ($user in $accounts) {
+      #   New-LocalUser -Name $user -NoPassword
+      # }
     } 
     Write-Host "$($accounts.Count) account were created successfully."
   } else {
