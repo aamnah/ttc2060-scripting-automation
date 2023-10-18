@@ -18,6 +18,8 @@ If the given file does not exist, the script gives a proper error message.
 #>
 
 param(
+  [Parameter(Mandatory,
+  HelpMessage="Enter the path for a CSV file that has first and last names. For example: /home/user/users.csv")]
   [string]$Filename = '' # path to CSV file containing names
 )
 
