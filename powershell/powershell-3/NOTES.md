@@ -9,11 +9,11 @@ New-Item 'test' -ItemType ctrl+space
 Copy-Item -ctrl+space
 ```
 
+`$_` is a built-in variable. Inside a loop, the current item being iterated over is copied to `$_`
 
 Prefer using the Windows version of commands and not aliases. For exmaple, `Get-ChildItem` instead of `pwd`
 
 - `Get-Location` or `pwd` get current directory
-
 
 
 ### Join Paths

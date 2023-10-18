@@ -5,12 +5,40 @@ date: 2023-09-14
 
 # PowerShell Notes
 
-```bash
+## Command syntax
+
+CmdLets (pronounced command-lets) are given a Verb-Noun format. For example, `Write-Host`, `Get-Date`, `Set-ExecutionPolicy`, `New-Item` etc.
+
+```ps1
+# Verb-Noun format
+Get-Command
+
+Get-Command -Verb Get
+Get-Command -Noun Host
+```
+
+- CmdLets, for the most part, are not case sensitive. `Get-Command -Noun Host` will get you the same results as `get-command -noun host`
+- Screen can be cleared with `Clear-Host`, `cls` or `clear`
+- Command history is available with `Get-History`
+
+
+```ps1
 # Get PowerShell version
 $Host.version
 
 # Get PowerShell version in extended details
 $PSVersionTable
+```
+
+## Output to the screen
+
+```ps1
+Write-Host 'PowerShell is awesome'
+
+# commas can be skipped for basic strings and if no variable/command substitution happening
+Write-Host PowerShell is awesome
+
+Write-Host "Today's date is $(Get-Date)" # Today's date is 10/18/2023 10:08:38
 ```
 
 ## Comments
@@ -26,7 +54,19 @@ There are multiple lines
 #>
 ```
 
+## Scripts
+
+Script files (files with a bunch of commands in them) must use the extension `.ps1`
+
+You can call a script with `./foo.ps1`
+
+`./` means look in the current directory. On windows it will be `.\` while on Linux and macOS it will be `./`
+
 ## Variables 
+
+- Variable names are NOT case-sensitive
+- Can include spaces and special characters when enclosed in `{}`
+- Convention is to use only alphanumeric characters and the `_` underscore
 
 ```ps1
 # Variables
@@ -78,10 +118,12 @@ Write-Host'{0} and {1} are awesome!' -f $name1, $name2
 You can get user input with `Read-Host`
 
 ```ps1
-$name = Read-Host "What is your name"
+$name = Read-Host "What is your name?"
 
 Write-Host "Greetings, $name!"
 ```
+
+![Taking User Input in PowerShell](./powershell_user_input.png)
 
 You can also obscure the input by marking it as a _secure string_. For example, passwords.
 
