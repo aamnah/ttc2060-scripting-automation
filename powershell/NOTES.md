@@ -81,3 +81,24 @@ $secret = Read-Host "Tell me a secret" -asSecureString
 Write-Host $secret
 # System.Security.SecureString
 ```
+
+
+Create five files for the tasks
+
+```ps1
+1..5 | foreach { New-Item -Path task0$_.ps1 }
+```
+
+```
+PS /home/user/powershell-4> 1..5 | foreach { New-Item -Path task0$_.ps1 }
+
+    Directory: /home/user/powershell-4
+
+UnixMode   User             Group                 LastWriteTime           Size Name
+--------   ----             -----                 -------------           ---- ----
+-rw-rw-r-- user             user               10/18/2023 08:41              0 task01.ps1
+-rw-rw-r-- user             user               10/18/2023 08:41              0 task02.ps1
+-rw-rw-r-- user             user               10/18/2023 08:41              0 task03.ps1
+-rw-rw-r-- user             user               10/18/2023 08:41              0 task04.ps1
+-rw-rw-r-- user             user               10/18/2023 08:41              0 task05.ps1
+```
