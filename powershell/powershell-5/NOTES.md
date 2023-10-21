@@ -89,3 +89,34 @@ Remove-LocalUser -Name nackni, russja, bellan
 ```
 
 ## Events
+
+```ps1
+# Register a new source
+New-EventLog -LogName $LogName -Source $Source
+
+# Sample EventLog entry
+Write-EventLog -LogName Application -Source 'MyPowerShell' -EntryType Information -Message 'Hello from the other side' -EventId 1
+
+```
+
+```ps1
+# Check what commands are available related to events and eventlogs
+Get-Command -Name *event
+Get-Command -Name *eventlog
+```
+
+```
+CommandType     Name                                     Version    Source
+-----------     ----                                     -------    ------
+Cmdlet          Get-Event                                3.1.0.0    Microsoft.PowerShell.U...
+Cmdlet          Get-WinEvent                             3.0.0.0    Microsoft.PowerShell.D...
+Cmdlet          New-Event                                3.1.0.0    Microsoft.PowerShell.U...
+Cmdlet          New-WinEvent                             3.0.0.0    Microsoft.PowerShell.D...
+Cmdlet          Register-CimIndicationEvent              1.0.0.0    CimCmdlets
+Cmdlet          Register-EngineEvent                     3.1.0.0    Microsoft.PowerShell.U...
+Cmdlet          Register-ObjectEvent                     3.1.0.0    Microsoft.PowerShell.U...
+Cmdlet          Register-WmiEvent                        3.1.0.0    Microsoft.PowerShell.M...
+Cmdlet          Remove-Event                             3.1.0.0    Microsoft.PowerShell.U...
+Cmdlet          Unregister-Event                         3.1.0.0    Microsoft.PowerShell.U...
+Cmdlet          Wait-Event                               3.1.0.0    Microsoft.PowerShell.U...
+```
