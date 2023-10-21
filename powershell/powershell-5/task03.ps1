@@ -2,7 +2,7 @@
 [x] Create a script that creates new localusers by a given csv-file. 
 [x] The script has one parameter filename. 
 [x] Check first that the given file exist, 
-[ ] then read all lines and create a new local user account for every user in file. 
+[x] then read all lines and create a new local user account for every user in file. 
 [x] The account name is created same way as in the task 01. 
 [x] You can use in this script the parameter NoPassword 
 
@@ -23,7 +23,7 @@ param(
   [string]$Filename = '' # path to CSV file containing names
 )
 
-$accounts = @()
+$accounts_created = @()
 
 if ($PSBoundParameters.Count -eq 0) {
   Write-host "You need to provide a filename."
@@ -41,18 +41,14 @@ if ($PSBoundParameters.Count -eq 0) {
       $consent = $(Write-Host "A new local account " -NoNewLine)  + $(Write-Host "${username}" -ForegroundColor Cyan -NoNewLine) + $(Write-Host " will be created for $firstname $lastname, [Yes/No]: " -NoNewline; Read-Host)
 
       if (($consent.ToLower() -eq 'Yes') -Or ($consent.ToLower() -eq 'Y')) {
-        $accounts += $username
+        New-LocalUser -Name $username -FullName "$firstname $lastname" -Description 'User created by PowerShell' -NoPassword | Out-Null
+
+        $accounts_created += $username
       }      
     }
 
-    # Create new users
-    foreach ($user in $accounts) {
-      <# $user is the current item #>
-      New-LocalUser -Name $user -NoPassword
-    }
-
     # Confirm creation of new users
-    Write-Host "$($accounts.Count) new accounts were created successfully" -ForegroundColor Green
+    Write-Host "$($accounts_created.Count) new accounts were created successfully" -ForegroundColor Green
   } else {
     Write-Host "Sorry, ${Filename} does not exist."
   }
@@ -61,3 +57,4 @@ if ($PSBoundParameters.Count -eq 0) {
 
 # Write-Host "PSBoundParameters.Count: $($PSBoundParameters.Count)" # int
 # Write-Host "Args.Count: $($Args.Count)" # int
+# `| Out-Null` will suppress the confirmation messages on the prompt output about user creation
