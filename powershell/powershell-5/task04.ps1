@@ -13,7 +13,9 @@
 param(
   [Parameter(Mandatory,
   HelpMessage = "Provide the file to save local user details in. For example: /home/user/localusers.csv")]
-  [string]$Filename = ''
+  [string]$Filename = '',
+  [string]$SuccessMessage = "$Filename was successfully created. It containes Name, Full Name, SID and LastLogon of all local users.",
+  [string]$FailMessage = "Failed to create CSV file: $Filename"
   )
 
 # Source `Add-MyEvent` from Task 5
@@ -39,14 +41,14 @@ if (Test-Path $Filename) {
 
   if (($consent.ToLower() -eq 'yes') -Or ($consent.ToLower() -eq 'y')) {
     Export-LocalUser -OutFile $Filename
-    Add-MyEvent -Type Information -Message "CSV file $Filename created successfully."
+    Add-MyEvent -Type Information -Message $SuccessMessage
   } else {
-    Add-MyEvent -Type Information -Message "Could not create CSV file: $Filename"
+    Add-MyEvent -Type Information -Message $FailMessage
   }
 } else {
   # CSV file doesn't exist, create a new one
   Export-LocalUser -OutFile $Filename
-  Add-MyEvent -Type Information -Message "CSV file $Filename created successfully."
+  Add-MyEvent -Type Information -Message $SuccessMessage
 }
 
 
