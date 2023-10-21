@@ -37,7 +37,8 @@ if ($PSBoundParameters.Count -eq 0) {
       $username = "$($lastname.Substring(0,4))$($firstname.Substring(0,2))".ToLower()
 
       # Figure out which accounts should be cerated by confirming with the script runner
-      $consent = Read-Host "A new local account ${username} will be created for $firstname $lastname, [Yes/No]"
+      # $consent = Read-Host "A new local account ${username} will be created for $firstname $lastname, [Yes/No]"
+      $consent = $(Write-Host "A new local account " -NoNewLine)  + $(Write-Host "${username}" -ForegroundColor Cyan -NoNewLine) + $(Write-Host " will be created for $firstname $lastname, [Yes/No]: " -NoNewline; Read-Host)
 
       if (($consent.ToLower() -eq 'Yes') -Or ($consent.ToLower() -eq 'Y')) {
         $accounts += $username
@@ -49,8 +50,9 @@ if ($PSBoundParameters.Count -eq 0) {
         New-LocalUser -Name $user -NoPassword
       }
 
-      Write-Host "$($accounts.Count) new accounts were created successfully"
     }
+
+    Write-Host "$($accounts.Count) new accounts were created successfully" -ForegroundColor Green
   } else {
     Write-Host "Sorry, ${Filename} does not exist."
   }
