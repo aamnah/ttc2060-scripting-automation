@@ -144,6 +144,28 @@ Write-Host $secret
 # System.Security.SecureString
 ```
 
+## Colored output in Prompt
+
+- For `Write-Host` you can define a color for the message with `-ForegroundColor`
+
+- `Read-Host` does not support `-ForegroundColor`, but you can pass an output from `Write-Host` to `Read-Host`, which will get you the same results
+
+- By default, `Write-Host` adds a line break at the end. You can suppress them with `-NoNewLine` if you're chaining multiple `Write-Host` statements (for example: in case the colored output needs to be in the middle of a message) 
+
+```ps1
+$username = 'russja'
+$firstname = 'Jack'
+$lastname = 'Russel'
+
+$message = $(Write-Host "A new local account " -NoNewLine)  + $(Write-Host "${username}" -ForegroundColor Cyan -NoNewLine) + $(Write-Host " will be created for $firstname $lastname, [Yes/No]: " -NoNewline; Read-Host)
+# $consent = Read-Host "$message"
+
+if (($message.ToLower() -eq 'Yes') -Or ($message.ToLower() -eq 'Y')) {
+  Write-Host "Agreed." -ForegroundColor Green
+} else {
+  Write-Host "Nope." -ForegroundColor Red
+}
+```
 
 Create five files for the tasks
 
