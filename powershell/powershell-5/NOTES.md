@@ -79,4 +79,13 @@ Get-LocalGroupMember -Name Users
 New-LocalUser -Name 'Test' -NoPassword
 ```
 
+```ps1
+# Remove a user
+Remove-LocalUser -Name nackni
+
+# Remove multiple local users
+# Name expects String[]
+Remove-LocalUser -Name nackni, russja, bellan
+```
+
 ## Events
