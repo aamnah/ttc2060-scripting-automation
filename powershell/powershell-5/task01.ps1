@@ -1,5 +1,5 @@
 <# 5.1
-[ ] Create a script that creates new accounts for a placebo system (placebo means here that the system not really exists). 
+[x] Create a script that creates new accounts for a placebo system (placebo means here that the system not really exists). 
 [x] The script takes one parameter `filename`. The parameter points to a csv file including user names. 
 [x] Check first that the given file exist, then read all lines. 
 [x] User's account is created by taking 
@@ -31,14 +31,12 @@ if ($PSBounParameters -eq 0) {
       # Log the new usernames
       Write-Host "Hello my colleague $firstname $lastname, this is your new account:"
       Write-host $username
-  
-      # Add the username to the array of users we need to create
-      $accounts += $username
-  
+      
       # Create the user accounts
-      # foreach ($user in $accounts) {
-      #   New-LocalUser -Name $user -NoPassword
-      # }
+      # New-LocalUser -Name $username -NoPassword
+  
+      # Add the username to the array of users we have created
+      $accounts += $username
     } 
     Write-Host "$($accounts.Count) account were created successfully."
   } else {
