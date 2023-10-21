@@ -42,16 +42,16 @@ if ($PSBoundParameters.Count -eq 0) {
 
       if (($consent.ToLower() -eq 'Yes') -Or ($consent.ToLower() -eq 'Y')) {
         $accounts += $username
-      }
-
-      # Create new users
-      foreach ($user in $accounts) {
-        <# $user is the current item #>
-        New-LocalUser -Name $user -NoPassword
-      }
-
+      }      
     }
 
+    # Create new users
+    foreach ($user in $accounts) {
+      <# $user is the current item #>
+      New-LocalUser -Name $user -NoPassword
+    }
+
+    # Confirm creation of new users
     Write-Host "$($accounts.Count) new accounts were created successfully" -ForegroundColor Green
   } else {
     Write-Host "Sorry, ${Filename} does not exist."
