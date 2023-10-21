@@ -1,3 +1,4 @@
+#!/bin/bash 
 <<task_55_brief
 [ ] Create a script that reads [superhero.json] file.
 [ ] Script prints hero names to the user who selects which heroes powers or secret identity he/she wants to see.
