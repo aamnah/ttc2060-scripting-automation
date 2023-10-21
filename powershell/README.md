@@ -146,10 +146,10 @@ Write-Host $secret
 
 ## Colored output in Prompt
 
+- [Configuring a light colored theme](https://learn.microsoft.com/en-us/powershell/scripting/learn/shell/using-light-theme?view=powershell-7.3)
+- [How to Change Color of Read-Host Command in PowerShell](https://www.youtube.com/watch?v=qSKAb9yvdJY)
 - For `Write-Host` you can define a color for the message with `-ForegroundColor`
-
 - `Read-Host` does not support `-ForegroundColor`, but you can pass an output from `Write-Host` to `Read-Host`, which will get you the same results
-
 - By default, `Write-Host` adds a line break at the end. You can suppress them with `-NoNewLine` if you're chaining multiple `Write-Host` statements (for example: in case the colored output needs to be in the middle of a message) 
 
 ```ps1
