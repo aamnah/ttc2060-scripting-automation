@@ -1,3 +1,29 @@
+TIPS:
+
+- Piping some text to `xargs` trims the whitespace around the text [ref](https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable)
+
+
+Arrays in Bash
+
+```bash
+declare -a SAMPLE_ARRAY_1
+
+SAMPLE_ARRAY_1+="sample.csv"
+SAMPLE_ARRAY_1+="foo.txt"
+SAMPLE_ARRAY_1+="bar.txt"
+echo ${SAMPLE_ARRAY_1[@]} # sample.csvfoo.txtbar.txt
+
+declare -a SAMPLE_ARRAY_2
+
+SAMPLE_ARRAY_2+=("sample.csv")
+SAMPLE_ARRAY_2+=("foo.txt")
+SAMPLE_ARRAY_2+=("bar.txt")
+echo ${SAMPLE_ARRAY_2[@]} # sample.csv foo.txt bar.txt
+```
+
+`+=""` without the parantheses outputs the array as a single string
+`+=("")` with the paranthese outputs a space separated array
+
 ## Variables
 
 Quoting a variable reference (`"$var"`) prevents word splitting and glob expansion.
