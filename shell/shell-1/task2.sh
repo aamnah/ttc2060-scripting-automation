@@ -24,12 +24,14 @@ create_file() {
   # moved these variables inside here 
   # because when at the top of the file, the values do not update when FILE is updated
   MSG_SUCCESS="\nA new file was created: ${FILE}"
-  MSG_OVERWRITE="${FILE} already exists. Do you want to overwrite? [y/N] "
+  MSG_OVERWRITE="\n${FILE} already exists. Do you want to overwrite? [y/N] "
 
   # If file already exists, ask if we should overwrite
   if [ -e ${FILE} ]
   then
-    read -p "${MSG_OVERWRITE}" CONSENT
+    read -p "$(echo -e "${MSG_OVERWRITE}")" CONSENT 
+    # echo + read to have a new line
+    # read alone will just out \n as a string
 
     # if the user said yes, delete the old file and create a new one
     if [ ${CONSENT} == 'Y' ] || [ ${CONSENT} == 'y' ]

@@ -24,6 +24,47 @@ echo ${SAMPLE_ARRAY_2[@]} # sample.csv foo.txt bar.txt
 `+=""` without the parantheses outputs the array as a single string
 `+=("")` with the paranthese outputs a space separated array
 
+## User Input
+
+```bash
+read -p "PROMPT" VARIABLE
+```
+
+```bash
+#!/bin/bash
+
+echo "Hi! Whats your name?" # print the welcome text
+
+read name # gets the input to a variable called varname
+
+echo "Nice to meet you $name" # print the string + variable value
+```
+
+- `-p` = adds prompt message
+- `-s` = hides the input from terminal (silent) e.g. when entering passwords
+
+
+## Reading user input with a prompt message that contains new lines
+
+`read` can show a prompt message with `-p` but the message can not have line breaks, if you add them, it will just ouput `\n` as a string [ref](https://stackoverflow.com/a/4296145)
+
+```bash
+MSG_OVERWRITE="\nFile already exists. Do you want to overwrite? [y/N] "
+
+read -p "${MSG_OVERWRITE}" CONSENT
+# \nFile already exists. Do you want to overwrite? [y/N] y
+```
+
+Work around is using `echo` with `read`
+
+```bash
+MSG_OVERWRITE="\nFile already exists. Do you want to overwrite? [y/N] "
+
+read -p "$(echo -e "${MSG_OVERWRITE}")" CONSENT 
+# 
+# File already exists. Do you want to overwrite? [y/N] y
+```
+
 ## Variables
 
 Quoting a variable reference (`"$var"`) prevents word splitting and glob expansion.
@@ -77,24 +118,6 @@ unnecessary
 #im a variable
 ```
 
-## User Input
-
-```bash
-read -p "PROMPT" VARIABLE
-```
-
-```bash
-#!/bin/bash
-
-echo "Hi! Whats your name?" # print the welcome text
-
-read name # gets the input to a variable called varname
-
-echo "Nice to meet you $name" # print the string + variable value
-```
-
-- `-p` = adds prompt message
-- `-s` = hides the input from terminal (silent) e.g. when entering passwords
 
 
 ## Variable length
