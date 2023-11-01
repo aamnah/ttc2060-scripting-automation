@@ -3,7 +3,7 @@ TIPS:
 - Piping some text to `xargs` trims the whitespace around the text [ref](https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable)
 
 
-Arrays in Bash
+## Working with Arrays in Bash
 
 ```bash
 declare -a SAMPLE_ARRAY_1
@@ -117,8 +117,6 @@ unnecessary
 #output:
 #im a variable
 ```
-
-
 
 ## Variable length
 
