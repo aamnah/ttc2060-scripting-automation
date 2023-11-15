@@ -9,15 +9,15 @@ task_22_brief
 FILE='/etc/hosts'
 
 check_etc_perms() {
-  if [ -e "${FILE}" ], then
+  if [ -e "${FILE}" ]; then
     # check if ${FILE} exists
     echo "${FILE} available"
 
     # check if you can write in ${FILE}
-    if [ -w "${FILE}" ], then
+    if [ -w "${FILE}" ]; then
       echo "You have permission to edit the file"
-    elif ![ -w "${FILE}" ], then
-      echo echo "You do not have permission to edit the file"
+    elif [ ! -w "${FILE}" ]; then
+      echo "You do not have permission to edit the file"
     fi
   fi
 }
