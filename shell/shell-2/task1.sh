@@ -7,16 +7,25 @@ task_21_brief
 FILE_TO_REMOVE=$1
 
 remove_file() {
-  read -p "Please provide a file to remove (absolute path):" FILE_TO_REMOVE
+  read -p "Please provide a file to remove (absolute path): " FILE_TO_REMOVE
 
   if [ -e "${FILE_TO_REMOVE}" ]
   then
-    if [ -f "${FILE_TO_REMOVE}" ] && ![ -s "${FILE_TO_REMOVE}" ]
+    if [ -f "${FILE_TO_REMOVE}" ] # file exists and is a regular file (not a directory or device)
     then
-      echo -e "${FILE_TO_REMOVE} exists, is a regular file, and is empty"
+      if [ ! -s "${FILE_TO_REMOVE}" ] # file is empty
+      then
+        # remove the file and print a success message
+        rm ${FILE_TO_REMOVE}
+        echo -e "${FILE_TO_REMOVE} has been removed."
+      else  # file is not empty
+        echo -e "${FILE_TO_REMOVE} is not empty, can not remove."
+      fi
+    else # file is not a regular file
+      echo -e "${FILE_TO_REMOVE} is not a regular file. Could not remove."
     fi
   else
-    echo -e "${FILE_TO_REMOVE} does not exist"
+    echo -e "${FILE_TO_REMOVE} does not exist. Could not remove."
   fi
 }
 
