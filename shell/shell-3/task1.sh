@@ -13,15 +13,25 @@ declare -a DATARAY
 
 INPUT=''
 
+to_lower() {
+  # $(echo "${INPUT}" | tr "[:upper:]" "[:lower:]")
+# is to check for the word in a case-insensitive way
+# will check for Exit, exit or eXiT
+  echo "${1}" | tr "[:upper:]" "[:lower:]"
+}
+
 ask_for_value() {
   read -p "Please enter a value: " INPUT
-  DATARAY+=(${INPUT})
+  if [ ! $(to_lower "${INPUT}") == "exit" ]
+  then
+    DATARAY+=(${INPUT})
+  fi
 }
 
 ask_for_value
 
 # Check uf user typed exit
-if [ $(echo "${INPUT}" | tr "[:upper:]" "[:lower:]") == "exit" ]
+if [ $(to_lower "${INPUT}") == "exit" ]
 # $(echo "${INPUT}" | tr "[:upper:]" "[:lower:]")
 # is to check for the word in a case-insensitive way
 # will check for Exit, exit or eXiT
@@ -29,7 +39,7 @@ then
   exit
 else
   # Keep asking for input until the user enters exit
-  until [ $(echo "${INPUT}" | tr "[:upper:]" "[:lower:]") == "exit" ]
+  until [ $(to_lower "${INPUT}") == "exit" ]
   do
     ask_for_value
   done
