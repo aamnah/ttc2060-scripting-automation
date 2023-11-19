@@ -34,6 +34,7 @@ divide() {
 }
 
 # Select from the values of CALCULATION_OPTIONS array and the value Exit
+# https://www.baeldung.com/linux/shell-script-simple-select-menu#2-indexing-options-with-select
 select OPERATION in "${CALCULATION_OPTIONS[@]}" Exit
 do
   if [ "${OPERATION}" = "Exit" ]
@@ -45,19 +46,19 @@ do
   read -p "Please enter another value: " VALUE_2
 
   case ${OPERATION} in
+    "-")
+      RESULT=$(subtract $VALUE_1 $VALUE_2)
+      ;;
+    "+")
+      RESULT=$(add $VALUE_1 $VALUE_2)
+      ;;
     "*")
       RESULT=$(multiply $VALUE_1 $VALUE_2)
       ;;
     "/")
       RESULT=$(divide $VALUE_1 $VALUE_2)
       ;;
-    "+")
-      RESULT=$(add $VALUE_1 $VALUE_2)
-      ;;
-    "-")
-      RESULT=$(subtract $VALUE_1 $VALUE_2)
-      ;;
-    "*")
+    *)
       RESULT=$(($VALUE_1 $OPERATION $VALUE_2))
   esac
   
