@@ -47,7 +47,8 @@ Hints:
 - Remember delimiters.
 - One string might be easier than multiple --> how you can combine multiple strings (concatenate)?
 
-![Screenshot - Task 3](task3.png)
+![Screenshot - Task 3a](task3a.png)
+![Screenshot - Task 3b](task3b.png)
 
 ## Task 4
 Create a script that have a function that changes services listening ports (80 x2) and default page (index.html) defined in [example.conf](./example.conf).
