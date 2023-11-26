@@ -1,8 +1,8 @@
 #!/bin/bash 
 <<task_51_brief
-[ ] Create a script that asks values from the user until user decides to end the script.  
-[ ] Given values are added to the end of file called 'animal.txt'
-[ ] Finally script prints every value from the file.  
+[x] Create a script that asks values from the user until user decides to end the script.  
+[x] Given values are added to the end of file called 'animal.txt'
+[x] Finally script prints every value from the file.  
 task_51_brief
 
 FILE="animal.txt"
@@ -15,8 +15,8 @@ function aks_for_value {
 
 to_lower() {
   # $(echo "${INPUT}" | tr "[:upper:]" "[:lower:]")
-# is to check for the word in a case-insensitive way
-# will check for Exit, exit or eXiT
+  # is to check for the word in a case-insensitive way
+  # will check for Exit, exit or eXiT
   echo "${1}" | tr "[:upper:]" "[:lower:]"
 }
 
