@@ -10,6 +10,7 @@ Given values are added to the end of file called `animal.txt`
 
 Finally script prints every value from the file.  
 
+![Screenshot - Task 1](task1.png)
 
 ## Task 2
 Create a script that reads [cars.csv](./cars.csv) file.
@@ -30,6 +31,7 @@ Model: Y
 Color: Y
 Year: Y
 
+![Screenshot - Task 2](task2.png)
 
 ## Task 3
 Modify the task 2.
@@ -42,6 +44,7 @@ Hints:
 - Remember delimiters.
 - One string might be easier than multiple --> how you can combine multiple strings (concatenate)?
 
+![Screenshot - Task 3](task3.png)
 
 ## Task 4
 Create a script that have a function that changes services listening ports (80 x2) and default page (index.html) defined in [example.conf](./example.conf).
@@ -53,6 +56,7 @@ NOTE: Script should overwrite the default values, not every possible value in th
 Hints:
 - `sed` command needs some option to write the changes.
 
+![Screenshot - Task 4](task4.png)
 
 ## Task 5
 Create a script that reads [superhero.json](./superhero.json) file.
@@ -66,3 +70,5 @@ Script will continue asking what to do until user gives some string to exit to s
 Hints:
 - any iterations structure
 - `jq` command
+
+![Screenshot - Task 5](task5.png)
