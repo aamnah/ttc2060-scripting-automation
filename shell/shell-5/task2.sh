@@ -1,8 +1,8 @@
 #!/bin/bash 
 <<task_52_brief
-[ ] Create a script that reads [cars.csv](./cars.csv) file.
-[ ] File that is read must be given at the script startup as a command line argument.
-[ ] Script reads information from the file and prints the values to the user.
+[x] Create a script that reads [cars.csv](./cars.csv) file.
+[x] File that is read must be given at the script startup as a command line argument.
+[x] Script reads information from the file and prints the values to the user.
 
 Output format:
 --- Line 1 ---
