@@ -12,6 +12,7 @@ Create a script that asks URL from the user and a function that tries to ping it
 
 Based on the exit code that the function returned, print outcome to user.
 
+![Screenshot - task 1](task1.png)
 
 ## Task 2
 Create a script that prints 3 random numbers on the terminal and also generates a syslog message with a correlating number for each random number.
@@ -20,6 +21,7 @@ Log message priority should be `user.info`.
 
 Hints: Special variable `$RANDOM`
 
+![Screenshot - task 2](task2.png)
 
 ## Task 3
 Create a script that installs the program using apt, based on the user input. (`cowsay` etc.)
@@ -30,6 +32,7 @@ If not, inform user and exit with a code 111.
 
 Hints: sudo permissions and apt options
 
+![Screenshot - task 3](task3.png)
 
 ## Task 4
 Create a script that has a function called network_information that shows the following information:
@@ -41,6 +44,7 @@ Log the messages in the syslog with a custom tag "network-information".
 
 Hints: Utilize arrays and ip or hostname commands with options
 
+![Screenshot - task 4](task4.png)
 
 ## Task 5
 Create a script that has 3 functions: `mk_folder`, `download_image` and `change_perm`.
@@ -50,3 +54,5 @@ Create a script that has 3 functions: `mk_folder`, `download_image` and `change_
 - `change_perm` function sets the folder and image permissions in a way that only owner has rights to them (rwx).
 
 Every possible variable substitution and command execution must be shown in the terminal during the execution.
+
+![Screenshot - task 5](task5.png)
