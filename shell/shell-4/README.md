@@ -21,7 +21,10 @@ Log message priority should be `user.info`.
 
 Hints: Special variable `$RANDOM`
 
-![Screenshot - task 2](task2.png)
+![Screenshot - task 2](task2a.png)
+
+![Screenshot - task 2](task2b.png)
+
 
 ## Task 3
 Create a script that installs the program using apt, based on the user input. (`cowsay` etc.)
