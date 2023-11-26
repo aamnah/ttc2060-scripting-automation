@@ -8,5 +8,4 @@
 Hints:
 - any iterations structure
 - `jq` command
-
 task_55_brief 
