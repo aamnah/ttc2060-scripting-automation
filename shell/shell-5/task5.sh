@@ -2,8 +2,8 @@
 <<task_55_brief
 [x] Create a script that reads [superhero.json] file.
 [x] Script prints hero names to the user who selects which heroes powers or secret identity he/she wants to see.
-[ ] Script prints the desired values to the user.
-[ ] Script will continue asking what to do till user gives some string to exit to script (exit perhaps?).
+[x] Script prints the desired values to the user.
+[x] Script will continue asking what to do till user gives some string to exit to script (exit perhaps?).
 
 Hints:
 - any iterations structure
@@ -17,6 +17,7 @@ HEROES_LENGTH=$(( $(jq ".members | length" $FILE) + 0 ))
 HEROES=()
 
 # Populate the Heroes array
+###############################
 COUNT=0
 while [ $COUNT -lt $HEROES_LENGTH ]
 do
@@ -28,6 +29,7 @@ do
 done
 
 # Show a select menu for Heroes
+##################################
 PS3="Which hero do you want to know? "
 select hero in "${HEROES[@]}" Exit
 do
@@ -60,12 +62,4 @@ echo 'Exiting.. '
 # for KEY in "${!HEROES[@]}"
 # do
 #   echo "${KEY}: ${HEROES[$KEY]}"
-# done
-
-
-
-
-# for KEY in "${!array[@]}"
-# do
-#   echo "${KEY}: ${array[$KEY]}",
 # done
