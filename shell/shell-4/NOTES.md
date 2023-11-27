@@ -2,6 +2,10 @@
 
 `set` sets or unset values of shell options and positional parameters.
 
+- `-x` = print commands and their arguments as they are executed
+- `-e` = exit immediately if a command exits with a non-zero status
+- `-v` = print shell input lines as they are read
+
 - `set -x` at the beginning of the script enable tracing. It prints commands and their arguments as they are executed
 - `set -x` enables it and `set +x` disables it
 
@@ -34,4 +38,7 @@ logger -t "script_name" "Message"
 
 # include the PID
 logger -i "Message"
-``````
+
+logger -i -t "my_script" -p local0.info "message with a custom tag, PID and custom priority"
+#MONTH DAY TIME <hostname> my_script[<PID>]: message with a custom tag, PID and custom priority
+```

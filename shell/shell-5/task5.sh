@@ -40,11 +40,12 @@ do
   INDEX=$(($REPLY - 1)) # index is 0-based while select menu starts at 1
   MEMBER=$(jq ".members[$INDEX]" $FILE)
   SECRET_IDENTITY=$(jq ".members[$INDEX].secretIdentity" $FILE)
-  POWERS=$(jq ".members[$INDEX].powers" $FILE)
+  POWERS=$(jq ".members[$INDEX].powers[]" $FILE)
 
   echo -e "\nThe secret identity of ${hero} is ${SECRET_IDENTITY}. Powers are:"
-  echo "$POWERS"
+  echo -e "\n$POWERS\n"
 done
+echo 'Exiting.. '
 
 
 # this block does NOT work because of {0..$VAR}
