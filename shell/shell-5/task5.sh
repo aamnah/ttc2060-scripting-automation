@@ -31,9 +31,9 @@ done
 # Show a select menu for Heroes
 ##################################
 PS3="Which hero do you want to know? "
-select hero in "${HEROES[@]}" Exit
+select option in "${HEROES[@]}" Exit
 do
-  if [ "$hero" == "Exit" ]
+  if [ "$option" == "Exit" ]
   then
     break
   fi
@@ -44,7 +44,7 @@ do
   SECRET_IDENTITY=$(jq ".members[$INDEX].secretIdentity" $FILE)
   POWERS=$(jq ".members[$INDEX].powers[]" $FILE)
 
-  echo -e "\nThe secret identity of ${hero} is ${SECRET_IDENTITY}. Powers are:"
+  echo -e "\nThe secret identity of ${option} is ${SECRET_IDENTITY}. Powers are:"
   echo -e "\n$POWERS\n"
 done
 echo 'Exiting.. '
