@@ -17,6 +17,14 @@ Get-Command -Verb Get
 Get-Command -Noun Host
 ```
 
+```ps1
+# Get system information
+Get-ComputerInfo
+
+# Get a particular property from system information
+Get-ComputerInfo -Property "OsName"
+```
+
 - CmdLets, for the most part, are not case sensitive. `Get-Command -Noun Host` will get you the same results as `get-command -noun host`
 - Screen can be cleared with `Clear-Host`, `cls` or `clear`
 - Command history is available with `Get-History`
